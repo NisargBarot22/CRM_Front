@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -72,3 +73,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 =======
 # CRM_FRONTEND
 >>>>>>> 4509253976df7593e15aaa70c7d5a029b3af48cf
+=======
+# CRM_Front
+>>>>>>> 4967d88b13d56e775b4784c550a04db3c891e17e
