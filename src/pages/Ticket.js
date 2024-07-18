@@ -9,7 +9,7 @@ const Ticket = () => {
   const [createComment, setCreateComment] = useState('');
   const [addComment, setAddComment] = useState([]);
   const data = location.state;
-
+  console.log(data)
 
   useEffect(() => {
     getCommentForTicket();
@@ -92,11 +92,10 @@ const Ticket = () => {
 
   return (
     <>
-    {JSON.stringify()}
       <div style={styles.mainContainer}>
 
         <div style={styles.firstCol}>
-          <h2 style={{ fontWeight: "bold" }}>Unassigned</h2>
+          <h2 style={{ fontWeight: "bold" }}>{data.status}</h2>
           <div style={styles.cardContainer}>
             <div style={styles.topLeft}>{data.title}</div>
             <div style={styles.topRight}>{data.platform}</div>
@@ -196,10 +195,10 @@ const Ticket = () => {
 
               <h4 style={{ marginBottom: "20px" }}>RESOLUTION</h4>
 
-              <textarea onChange={(e) => setCreateComment(e.target.value)} style={{ width: "100%", borderRadius: "5px", height: "60%" }} placeholder='Please write here...' ></textarea>
+              <textarea disabled={data.status === "Completed"} onChange={(e) => setCreateComment(e.target.value)} style={{ width: "100%", borderRadius: "5px", height: "60%" }} placeholder='Please write here...' ></textarea>
 
               <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                <button onClick={addComments} style={{ backgroundColor: "cornflowerblue", color: "white" }}>Submit</button>
+                <button disabled={data.status === "Completed"} onClick={addComments} style={{ backgroundColor: "cornflowerblue", color: "white" } }>Submit</button>
               </div>
             </div>
           </div>

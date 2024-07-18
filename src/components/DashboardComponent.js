@@ -18,7 +18,7 @@ const DashboardComponent = ({ title, setActiveCard, onDrop, tickets, handleStatu
     }
 
     const viewTicket = (tickets) => {
-        navigate('/ticket', {state: tickets})
+        navigate('/ticket', {state: tickets, title})
     }
 
     return (

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import DashboardComponent from '../components/DashboardComponent';
-import { createTicket, getTickets, updateTicket } from '../api/api';
+import { createTicket, getTickets, updateTicket, getCurrentUser } from '../api/api';
 import { toast } from 'react-toastify'
 
 const Dashboard = () => {
@@ -13,11 +13,20 @@ const Dashboard = () => {
   const [restaurantBranch, setRestaurantBranch] = useState('Thane');
   const [description, setDescription] = useState('');
   const [username, setUsername] = useState('');
+  const [user, setUser] = useState({});
+
 
   useEffect(() => {
     loadAllTickets();
+    getCurrentUserDetails();
   }, [])
 
+
+  const getCurrentUserDetails = () =>{
+    getCurrentUser()
+    .then((res) => setUser(res))
+    .catch((err) => console.log(err))
+  }
 
   const loadAllTickets = () => {
     getTickets(0,10)
@@ -95,7 +104,7 @@ const Dashboard = () => {
 
         <div className='profile_bar' style={styles.profileBar}>
           <button onClick={handleAddButtonClick}>Add</button>
-          <h5>Nisarg Barot</h5>
+          <h5>{user.username}</h5>
         </div>
 
         <div className='col_container' style={styles.colContainer}>
